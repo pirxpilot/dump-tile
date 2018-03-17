@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const concat = require('concat-stream');
 const Pbf = require('pbf');
 const { VectorTile } = require('@mapbox/vector-tile');

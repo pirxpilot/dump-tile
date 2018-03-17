@@ -8,6 +8,7 @@
     "url": "https://furkot.com"
   },
   "repository": "pirxpilot/dump-tile",
+  "bin": "./index.js",
   "license": "MIT",
   "keywords": [
     "dump-tile",
@@ -29,7 +30,6 @@
     "test": "make check"
   },
   "files": [
-    "index.js",
-    "lib"
+    "index.js"
   ]
 }
