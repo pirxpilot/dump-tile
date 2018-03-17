@@ -1,0 +1,31 @@
+{
+  "name": "dump-tile",
+  "version": "0.0.0",
+  "description": "Dumps MVT tiles encoded in .pbf to JSON",
+  "author": {
+    "name": "Damian Krzeminski",
+    "email": "pirxpilot@furkot.com",
+    "url": "https://furkot.com"
+  },
+  "repository": "pirxpilot/dump-tile",
+  "license": "MIT",
+  "keywords": [
+    "dump-tile",
+    "PBF",
+    "tile",
+    "MVT"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "jshint": "^2.9.5",
+    "mocha": "^5.0.4",
+    "should": "^13.2.1"
+  },
+  "scripts": {
+    "test": "make check"
+  },
+  "files": [
+    "index.js",
+    "lib"
+  ]
+}
