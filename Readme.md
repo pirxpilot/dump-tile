@@ -9,15 +9,17 @@ Dumps MVT tiles encoded in .pbf to JSON
 ## Install
 
 ```sh
-$ npm install --save dump-tile
+$ npm -g install dump-tile
 ```
 
 ## Usage
 
-```js
-var dumpTile = require('dump-tile');
+```sh
+# dump tile from tile service
+curl --compress https://tiles.example.com/tile/2/3/5/pbf | dump-tile
 
-dumpTile('Rainbow');
+# dump tile from file
+cat tile.pbf | dump-tile > tile.json
 ```
 
 ## License
