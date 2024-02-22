@@ -7,7 +7,7 @@
     "email": "pirxpilot@furkot.com",
     "url": "https://furkot.com"
   },
-  "repository": "pirxpilot/dump-tile",
+  "repository": "github:pirxpilot/dump-tile",
   "bin": "./index.js",
   "license": "MIT",
   "keywords": [

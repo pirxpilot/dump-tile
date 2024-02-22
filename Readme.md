@@ -1,6 +1,6 @@
 [![NPM version][npm-image]][npm-url]
-[![Build Status][travis-image]][travis-url]
-[![Dependency Status][gemnasium-image]][gemnasium-url]
+[![Build Status][build-image]][build-url]
+[![Dependency Status][deps-image]][deps-url]
 
 # dump-tile
 
@@ -26,11 +26,11 @@ cat tile.pbf | dump-tile > tile.json
 
 MIT © [Damian Krzeminski](https://furkot.com)
 
-[npm-image]: https://img.shields.io/npm/v/dump-tile.svg
+[npm-image]: https://img.shields.io/npm/v/dump-tile
 [npm-url]: https://npmjs.org/package/dump-tile
 
-[travis-url]: https://travis-ci.org/pirxpilot/dump-tile
-[travis-image]: https://img.shields.io/travis/pirxpilot/dump-tile.svg
+[build-url]: https://github.com/pirxpilot/dump-tile/actions/workflows/check.yaml
+[build-image]: https://img.shields.io/github/actions/workflow/status/pirxpilot/dump-tile/check.yaml?branch=main
 
-[gemnasium-image]: https://img.shields.io/gemnasium/pirxpilot/dump-tile.svg
-[gemnasium-url]: https://gemnasium.com/pirxpilot/dump-tile
+[deps-image]: https://img.shields.io/librariesio/release/npm/dump-tile
+[deps-url]: https://libraries.io/npm/dump-tile
