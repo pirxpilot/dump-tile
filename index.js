@@ -1,13 +1,14 @@
 #!/usr/bin/env node
 
-const concat = require('concat-stream');
+const { buffer } = require('node:stream/consumers');
 const Pbf = require('pbf');
 const { VectorTile } = require('@mapbox/vector-tile');
 
 module.exports = dump;
 
 function dump(input, output) {
-  input.pipe(concat(buffer => dumpBuffer(buffer, output)));
+  return buffer(input)
+    .then(buffer => dumpBuffer(buffer, output));
 }
 
 function dumpBuffer(buffer, output) {
@@ -40,7 +41,7 @@ function dumpFeature(vf) {
 
 function dumpGeometry(vg) {
   function convertRing(ring) {
-    return ring.reduce(function(r, { x, y }) {
+    return ring.reduce(function (r, { x, y }) {
       r.push(x, y);
       return r;
     }, []);
@@ -51,4 +52,3 @@ function dumpGeometry(vg) {
 if (!module.parent) {
   dump(process.stdin, process.stdout);
 }
-
