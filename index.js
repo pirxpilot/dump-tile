@@ -4,6 +4,8 @@ const concat = require('concat-stream');
 const Pbf = require('pbf');
 const { VectorTile } = require('@mapbox/vector-tile');
 
+module.exports = dump;
+
 function dump(input, output) {
   input.pipe(concat(buffer => dumpBuffer(buffer, output)));
 }

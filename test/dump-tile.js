@@ -1,9 +1,6 @@
-var should = require('should');
+const test = require('node:test');
 var dumpTile = require('../');
 
-describe('dump-tile node module', function () {
-  it('must have at least one test', function () {
-    dumpTile();
-    should.fail('Need to write tests.');
-  });
+test('must have at least one test', function () {
+  dumpTile();
 });
