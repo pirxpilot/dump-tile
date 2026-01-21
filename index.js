@@ -1,32 +1,29 @@
 #!/usr/bin/env node
 
-const { buffer } = require('node:stream/consumers');
-const Pbf = require('pbf');
-const { VectorTile } = require('@mapbox/vector-tile');
+import { buffer } from 'node:stream/consumers';
+import Pbf from '@mapwhit/pbf';
+import { VectorTile } from '@mapwhit/vector-tile';
 
-module.exports = dump;
-
-function dump(input, output) {
-  return buffer(input)
-    .then(buffer => dumpBuffer(buffer, output));
+export default function dump(input, output) {
+  return buffer(input).then(buffer => dumpBuffer(buffer, output));
 }
 
 function dumpBuffer(buffer, output) {
-  let vt = new VectorTile(new Pbf(buffer));
-  let tile = dumpTile(vt);
+  const vt = new VectorTile(new Pbf(buffer));
+  const tile = dumpTile(vt);
   output.write(JSON.stringify(tile, null, 2));
   output.write('\n');
 }
 
 function dumpTile({ layers }) {
-  let tile = {};
+  const tile = {};
   tile.layers = Object.values(layers).map(dumpLayer);
   return tile;
 }
 
 function dumpLayer(vl) {
-  let { version, name, extent, length } = vl;
-  let layer = { version, name, extent, features: [] };
+  const { version, name, extent, length } = vl;
+  const layer = { version, name, extent, features: [] };
   for (let i = 0; i < length; i++) {
     layer.features.push(dumpFeature(vl.feature(i)));
   }
@@ -34,14 +31,14 @@ function dumpLayer(vl) {
 }
 
 function dumpFeature(vf) {
-  let { type, extent, id, properties } = vf;
-  let geometry = dumpGeometry(vf.loadGeometry());
+  const { type, extent, id, properties } = vf;
+  const geometry = dumpGeometry(vf.loadGeometry());
   return { type, extent, id, properties, geometry };
 }
 
 function dumpGeometry(vg) {
   function convertRing(ring) {
-    return ring.reduce(function (r, { x, y }) {
+    return ring.reduce((r, { x, y }) => {
       r.push(x, y);
       return r;
     }, []);
@@ -49,6 +46,6 @@ function dumpGeometry(vg) {
   return vg.map(convertRing);
 }
 
-if (!module.parent) {
+if (import.meta.main) {
   dump(process.stdin, process.stdout);
 }
